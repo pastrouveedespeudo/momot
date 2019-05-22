@@ -1,5 +1,7 @@
 # momot
 
+#amphipolis mer 66 jvous attend mate def
+
 #en gros la il faut:
 
 mettre les mots dans la database et leur fonction, 
