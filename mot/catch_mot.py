@@ -1,19 +1,23 @@
 import os
 
-class texte:
+class Texte:
 
     def lecture(self, path):
 
         self.path = path
+
+        liste_des_textes = []
         
         os.chdir(self.path)
         liste = os.listdir()
         for i in liste:
-
+            liste1 = []
             with open(i, 'r') as file:
-                liste.append(file.read())
-
-            return liste
+                liste1.append(file.read())
+            
+            liste_des_textes.append(liste1)
+            
+        return liste_des_textes
             
         
     def traitement_liste(self, liste):
@@ -21,21 +25,40 @@ class texte:
 
         liste_texte = []
 
-        for i in liste:
-            if i[-4:] == '.txt':
-                pass
-            else:
-                mot = ''
-                for j in i:
-                    if j == ' ':
+        for i in self.liste:
+            mot = ''
+            for j in i:
+                for k in j:
+                    if k == ' ':
                         liste_texte.append(mot)
                         mot = ''
                     else:
-                        mot += j
-                    
-        print(liste_texte)
+                        mot += k
+
         return liste_texte
 
+
+    def mot_liste(self, liste):
+        self.liste = liste
+
+        dico = {}
+        
+        ranger = set(self.liste)
+
+        for i in ranger:
+            dico[i] = 0
+            
+        for i in self.liste:
+            for cle, valeur in dico.items():
+                if i == cle:
+                    dico[i] += 1
+
+        print(dico)
+    
+    
+
+    def nombre_verbe():
+        pass
 
 
 
