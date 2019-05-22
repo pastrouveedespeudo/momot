@@ -1,4 +1,4 @@
-from catch_mot import texte
+from catch_mot import Texte
 
 
 
@@ -6,6 +6,7 @@ from catch_mot import texte
 
 if __name__ == '__main__':
 
-    texte = texte()
+    texte = Texte()
     le_texte = texte.lecture(r'C:\Users\jeanbaptiste\Desktop\cluster\texte\triste')
-    texte.traitement_liste(le_texte)
+    texte_rangé = texte.traitement_liste(le_texte)
+    texte.mot_liste(texte_rangé)
