@@ -19,6 +19,22 @@ class create_base:
         
         self.conn.commit()
 
+    def table_joyeux(self):
+
+        self.conn = psycopg2.connect(database='bobo',
+                            user='postgres',
+                            host='127.0.0.1',
+                            password='tiotiotio333')
+        
+        self.cursor = self.conn.cursor()
+        
+        self.cursor.execute("""CREATE table momot_joyeux(
+                                id serial PRIMARY KEY,
+                                mot VARCHAR(100),
+                                fonction VARCHAR(100),
+                                presence INT);""")
+        
+        self.conn.commit()
         
 
     def recherche_en_database(self, mot_cherché):
