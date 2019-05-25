@@ -2,7 +2,7 @@ import psycopg2
 
 class create_base:
 
-    def table(self):
+    def table_triste(self):
 
         self.conn = psycopg2.connect(database='bobo',
                             user='postgres',
@@ -11,13 +11,98 @@ class create_base:
         
         self.cursor = self.conn.cursor()
         
-        self.cursor.execute("""CREATE table momot(
+        self.cursor.execute("""CREATE table momot_triste(
                                 id serial PRIMARY KEY,
                                 mot VARCHAR(100),
                                 fonction VARCHAR(100),
                                 presence INT);""")
         
         self.conn.commit()
+
+    def table_verbe_triste(self):
+
+        self.conn = psycopg2.connect(database='bobo',
+                            user='postgres',
+                            host='127.0.0.1',
+                            password='tiotiotio333')
+        
+        self.cursor = self.conn.cursor()
+        
+        self.cursor.execute("""CREATE table verbe_triste(
+                                id serial PRIMARY KEY,
+                                verbe VARCHAR(100),
+                                presence INT);""")
+        
+        self.conn.commit()
+
+
+
+    def table_ponctu_triste(self):
+
+        self.conn = psycopg2.connect(database='bobo',
+                            user='postgres',
+                            host='127.0.0.1',
+                            password='tiotiotio333')
+        
+        self.cursor = self.conn.cursor()
+        
+        self.cursor.execute("""CREATE table ponctu_triste(
+                                id serial PRIMARY KEY,
+                                ponctu VARCHAR(100),
+                                fonction VARCHAR(100),
+                                presence INT);""")
+        
+        self.conn.commit()
+
+
+
+    def insertion_ponctu(self, ponctu, fonction, presence):
+        self.ponctu = ponctu
+        self.fonction = fonction
+        self.presence = presence
+
+
+        self.conn = psycopg2.connect(database='bobo',
+                            user='postgres',
+                            host='127.0.0.1',
+                            password='tiotiotio333')
+        
+        self.cursor = self.conn.cursor()
+        
+        self.cursor.execute("""INSERT INTO ponctu_triste
+                            (ponctu, fonction, presence)
+                            VALUES(%s, %s, %s)""",
+                            (self.ponctu, self.fonction, self.presence))
+        
+        self.conn.commit()
+
+
+    def insertion_verbe(self, verbe):
+        self.verbe = verbe
+        self.presence = presence
+        
+        self.conn = psycopg2.connect(database='bobo',
+                            user='postgres',
+                            host='127.0.0.1',
+                            password='tiotiotio333')
+        
+        self.cursor = self.conn.cursor()
+        
+        self.cursor.execute("""INSERT INTO verbe_triste
+                            (verbe, presence)
+                            VALUES(%s, %s)""",
+                            (self.verbe, self.presence))
+        
+        self.conn.commit()
+
+
+
+
+
+
+
+
+
 
     def table_joyeux(self):
 
@@ -48,7 +133,7 @@ class create_base:
 
 
         self.cursor.execute("""select *
-                            from momot where mot = '{}'""".format(mot_cherché))
+                            from momot_triste where mot = '{}'""".format(mot_cherché))
 
         self.conn.commit()
 
@@ -72,7 +157,7 @@ class create_base:
         
         self.cursor = self.conn.cursor()
 
-        self.cursor.execute("""INSERT INTO momot
+        self.cursor.execute("""INSERT INTO momot_triste
                             (mot, fonction, presence)
                             VALUES (%s,%s,%s)
                             """, (self.mot, self.fonction, self.presence))
@@ -91,7 +176,7 @@ class create_base:
 
         self.cursor = self.conn.cursor()
 
-        sql = ("""UPDATE momot set presence = %s
+        sql = ("""UPDATE momot_triste set presence = %s
                 WHERE (mot = %s);""")
 
         
@@ -103,10 +188,10 @@ class create_base:
 
 
 ##create_base = create_base()
-##create_base.table()
-
-
-
+##
+##create_base.table_triste()
+##create_base.table_verbe_triste()
+##create_base.table_ponctu_triste()
 
 
 
