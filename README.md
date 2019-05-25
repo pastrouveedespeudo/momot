@@ -1,6 +1,8 @@
 # momot
 
+#on s'en fou que ca marche pas normalement ca serait du speech recognition mais ca marche pas...
 
+#et faut trouver les textes joyeux mtn et y'en a auncun
 
 #en gros la il faut:
 
