@@ -22,3 +22,4 @@ et ca doit dire si triste pas triste si ca dit triste poru triste alors les text
 
 et apres mais apres faudra dire ex: texte lyric ect ou présence de métaphore ect ou hyperbole ou anaphore ect
 
+et la jouréne finir les 2 pages plus les tests ect mais la c chiant et que si un  truk va pas ca partira en attendez y'a quand meme un algorithme genetique par brut force ^^
