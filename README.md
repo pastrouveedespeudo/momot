@@ -1,13 +1,24 @@
-# momot
+# momot v2
 
-#on s'en fou que ca marche pas normalement ca serait du speech recognition mais ca marche pas...
+En gros, il faut:
 
-#et faut trouver les textes joyeux mtn et y'en a auncun
+prendre des textes
 
-#en gros la il faut:
+les split()
 
-mettre les mots dans la database et leur fonction, 
+prendre chaque mot le mettre en database
 
-si dans la database il y a le mot on le récupère sinon on va le chercher.
+le scorer a 0,
 
-Ensuite on essaie de voir des trucks via la database si y'a des différences avec les texte joyeux et tristes et on affiche une image crop d'un mec qui sourit ou pas et on affiche les graphes en temps réel ! et faire des exo du tournois pcque y'a pleins de fonctions native que connais pas
+s'il y est lui rajouter + 1
+
+a la fin faire ressortir les mot récurrents d'un texte triste pcque y'a que des textes triste sur internet...
+
+c nul enfete ah !
+
+ensuite on lui présente un texte triste
+
+et ca doit dire si triste pas triste si ca dit triste poru triste alors les texte triste ont un certain type de mot.
+
+et apres mais apres faudra dire ex: texte lyric ect ou présence de métaphore ect ou hyperbole ou anaphore ect
+
