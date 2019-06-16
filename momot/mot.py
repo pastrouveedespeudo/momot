@@ -143,7 +143,7 @@ class nombre:
 
 class comparatif:
 
-    def comparaison(self, text1, text2):
+    def comparaison(self, text1, text2, text2_base):
         self.text1 = text1
         self.text2 = text2
 
@@ -160,9 +160,9 @@ class comparatif:
             
         print("\n\n")
         
-        print(len(compa1))
+        print(len(text2_base))
         print(len(self.text2))
-
+        
         
 
 
@@ -172,7 +172,7 @@ class comparatif:
 if __name__ == "__main__":
 
 
-    TEXTE_A_COMPARER = "essais.txt"
+    TEXTE_A_COMPARER = "joie.txt"
     
     lecture = lecture()
     nettoyage = nettoyage()
@@ -196,7 +196,7 @@ if __name__ == "__main__":
     text_final2 = nombre.pourcent(texte_final)
 
 
-    comparatif.comparaison(text_final1, text_final2)
+    comparatif.comparaison(text_final1, text_final2, texte_final)
 
 
 
