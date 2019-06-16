@@ -28,7 +28,7 @@ class nettoyage:
 
         self.liste = liste
 
-        liste_ponctuation = [".", ",", ";","!","?",":", "'", '"']
+        liste_ponctuation = [".", ",", ";","!","?",":", "'", '"', "-"]
 
 
         liste1 = []
@@ -59,7 +59,6 @@ class nettoyage:
                 liste1.append(i)
 
 
-
         return liste1
 
 
@@ -84,8 +83,6 @@ class nettoyage:
                 liste1.append(i)
 
         return liste1
-
-
 
 
 
@@ -116,32 +113,94 @@ class nombre:
                     dico[cle] = i[1]
                     break
 
-        print(dico)
+ 
+        dico = sorted(dico.items(), key=lambda t: t[1])
         return dico
+
+
+    def pourcent(self, dico):
+
+        self.dico = dico
+
+        total = 0
+        for i in self.dico:
+            total += i[1]
+
+
+        liste = []
+        for i in self.dico:
+            if i[1] <= 10:
+                pass
+            else:
+                calcul = (i[1]*100) / total
+                liste.append([i[0], calcul])
+             
+                
+
+   
+        return liste 
+
+
+class comparatif:
+
+    def comparaison(self, text1, text2):
+        self.text1 = text1
+        self.text2 = text2
+
+
+        compa = [i[0] for i in self.text1 for j in self.text2 if i[0] == j[0]]
+        compa1 = [i for i in self.text2 for j in self.text1 if i[0] == j[0]]
+        compa2 = [i for i in self.text1 for j in self.text2 if i[0] == j[0]]
+
+
+        c = 0
+        for i in compa1:
+            print(i[0], "est présent à :", i[1], "et dans le fichier source :", compa2[c][1])
+            c+=1
+            
+        print("\n\n")
+        
+        print(len(compa1))
+        print(len(self.text2))
+
+        
+
+
+        
+
 
 if __name__ == "__main__":
 
-    fichier = "essais.txt"
 
-
+    TEXTE_A_COMPARER = "essais.txt"
+    
     lecture = lecture()
     nettoyage = nettoyage()
     nombre = nombre()
-
-    texte = lecture.lecture(fichier)
+    comparatif = comparatif()
+        
+    
+    texte = lecture.lecture("textes_triste.txt")
     texte_nettoye1 = nettoyage.mise_en_mot(texte)
     texte_nettoye2 = nettoyage.ponctuation(texte_nettoye1)
     texte_nettoye3 = nettoyage.apostrophe(texte_nettoye2)
-    nombre.comptage(texte_nettoye3)
+    texte_final = nombre.comptage(texte_nettoye3)
+    text_final1 = nombre.pourcent(texte_final)
+
+
+    texte = lecture.lecture(TEXTE_A_COMPARER)
+    texte_nettoye1 = nettoyage.mise_en_mot(texte)
+    texte_nettoye2 = nettoyage.ponctuation(texte_nettoye1)
+    texte_nettoye3 = nettoyage.apostrophe(texte_nettoye2)
+    texte_final = nombre.comptage(texte_nettoye3)
+    text_final2 = nombre.pourcent(texte_final)
+
+
+    comparatif.comparaison(text_final1, text_final2)
 
 
 
-
-
-
-
-
-
-
+    #on peut rajouter texte triste amour, ado, sucide, mort ect.... la c un mixte
+    #mtn avec mot joie si ca match ca marche pas trop
 
 
