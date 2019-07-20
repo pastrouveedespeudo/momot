@@ -60,7 +60,6 @@ class database:
 
 
 
-
 database = database()
 database.creation_table_principale()
 database.creation_table_librarie()
